@@ -1,0 +1,17 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "description": "Node API to handle subscription add-ons",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-cron": "^4.2.1"
+  }
+}
