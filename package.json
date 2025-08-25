@@ -6,12 +6,16 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "pm2:start": "pm2 start npm --name 'cron-api' -- run 'start:prod'",
+    "pm2:restart": "pm2 restart cron-api"
   },
   "dependencies": {
+    "@hapi/hapi": "^21.4.3",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "hapi-cron": "^1.1.0",
     "node-cron": "^4.2.1"
   }
 }
