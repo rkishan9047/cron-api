@@ -37,18 +37,15 @@ export function startAddonCron() {
         }
     });
 
-cron.schedule('30 11,23 * * *', async () => {
-
-        const url = `${process.env.MAIN_API_URL}/api/testing-check-time`; // ✅ FIXED URL
-
+    cron.schedule('35 11,23 * * *', async () => {
+        const url = `${process.env.MAIN_API_URL}/api/testing-check-time`;
         try {
-            console.log('🕒 Cron: Triggering /testing-check-time route', url);
-            await axios.post(url, {
-                addOn: process.env.CRON_ADDON // 👈 Pass in request body
-            });
+            console.log('🕒 Cron: Triggering /testing-check-time route', url, new Date().toString());
+            await axios.post(url, { addOn: process.env.CRON_ADDON });
         } catch (err) {
             console.error('❌ Cron failed:', err.message);
         }
+    }, {
+        timezone: "Asia/Kolkata"   // change to your desired TZ
     });
-
 }
