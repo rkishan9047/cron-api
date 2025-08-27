@@ -6,7 +6,7 @@ dotenv.config();
 export function startAddonCron() {
     // Runs Every Night 12 O' Clock
     // cron.schedule('0 0 * * *', async () => {
-    cron.schedule('35 5,17 * * *', async () => {
+    cron.schedule('0 0,12 * * *', async () => {
         // Runs every 1 minute
         // cron.schedule('*/1 * * * *', async () => {
         // ✅ Runs every day at 12:32 PM
