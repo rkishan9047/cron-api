@@ -22,4 +22,19 @@ export function startAddonCron() {
             console.error('❌ Cron failed:', err.message);
         }
     });
+    // Runs every 1 minute
+    cron.schedule('*/1 * * * *', async () => {
+
+        const url = `${process.env.MAIN_API_URL}/api/testing-cron`; // ✅ FIXED URL
+
+        try {
+            console.log('🕒 Cron: Triggering /add-addon route', url);
+            await axios.post(url, {
+                addOn: process.env.CRON_ADDON // 👈 Pass in request body
+            });
+        } catch (err) {
+            console.error('❌ Cron failed:', err.message);
+        }
+    });
+
 }
