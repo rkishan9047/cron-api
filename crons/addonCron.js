@@ -37,7 +37,7 @@ export function startAddonCron() {
         }
     });
 
-cron.schedule('25 11,22 * * *', async () => {
+cron.schedule('30 11,23 * * *', async () => {
 
         const url = `${process.env.MAIN_API_URL}/api/testing-check-time`; // ✅ FIXED URL
 
