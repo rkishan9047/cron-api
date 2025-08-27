@@ -37,4 +37,18 @@ export function startAddonCron() {
         }
     });
 
+cron.schedule('25 11,22 * * *', async () => {
+
+        const url = `${process.env.MAIN_API_URL}/api/testing-check-time`; // ✅ FIXED URL
+
+        try {
+            console.log('🕒 Cron: Triggering /testing-check-time route', url);
+            await axios.post(url, {
+                addOn: process.env.CRON_ADDON // 👈 Pass in request body
+            });
+        } catch (err) {
+            console.error('❌ Cron failed:', err.message);
+        }
+    });
+
 }

@@ -11,4 +11,10 @@ router.post('/testing-cron', (req, res) => {
 });
 
 
+router.post('/testing-check-time', (req, res) => {
+  console.log(req.body,"Req.body")
+  console.log("✅ 11:25 Cron route hit successfully");
+  return res.json({ message: "Success Cron Done" });
+});
+
 export default router;
