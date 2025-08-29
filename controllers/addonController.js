@@ -1,6 +1,7 @@
+import dotenv from 'dotenv';
 import axios from 'axios';
 import { getNewAccessToken } from '../services/tokenService.js';
-import dotenv from 'dotenv';
+import { v4 as uuid } from "uuid"
 
 dotenv.config();
 
@@ -638,7 +639,8 @@ export const addAddon = async (req, res) => {
                         'Ocp-Apim-Subscription-Key': process.env.API_KEY,
                         'InitiatorID': process.env.INITIATOR_ID,
                         'Accept': 'application/json',
-                        'TransactionID': process.env.TRANSACTION_ID,
+                        // 'TransactionID': process.env.TRANSACTION_ID,
+                        'TransactionID':  uuid(),
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json',
                         'Cookie': process.env.COOKIE,
